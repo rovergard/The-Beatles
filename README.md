@@ -5,23 +5,44 @@ This is a fun project that assembles data from many sources for all songs from T
 
 # Step 1: Extract, Transform and Load Beatles data from many sources using many techniques
 
-Data Source: Python API from Spotify to get a multitude of metadata about every Beatles song Data Source: REST API to get a popularity score for every song Data Source: Web Scraping a table from Wikipedia to get song writers and lead vocalists Data Source: A flat file from Kaggle that contains song lyrics for all songs Data Source: Web Scraping data in a page of text from Billboard to get chart performance for a subset of applicable songs Data Source: Postgres SQL database from musicbrainz.org for more metadata Data Source: Excel spreadsheet with qualitative data from a few individual users Merge all data sources into one tidy analysis file with one row per song and all important metadata Standardize naming convention Delete unused columns Data Destination: Python Pandas Dataframe and SQL Server DBMS
+Data Source: Python API from Spotify to get a multitude of metadata about every Beatles song 
+Data Source: REST API to get a popularity score for every song Data Source: Web Scraping a table from Wikipedia to get song writers and lead vocalists 
+Data Source: A flat file from Kaggle that contains song lyrics for all songs 
+Data Source: Web Scraping data in a page of text from Billboard to get chart performance for a subset of applicable songs 
+Data Source: Postgres SQL database from musicbrainz.org for more metadata 
+Data Source: Excel spreadsheet with qualitative data from a few individual users
+Merge all data sources into one tidy analysis file with one row per song and all important metadata Standardize naming convention Delete unused columns Data Destination: Python Pandas Dataframe and SQL Server DBMS
 
-# Step 2: Data Quality check
+# Step 2: Simple Data Quality check
 
 Browse the dataframe for context Check for missing values and duplication Check for any constant columns Verify and correct datatypes as needed
 
-#Step 3: Exploratory Data Analysis
+# Step 3: Exploratory Data Analysis
 
-Do preliminary univariate analyses and frequency counts Gain understanding of distributions Check for outliers or other weirdness Look at correlations and consider multicollinearity Build visualizations to support identified trends using Python libraries (pandas, matplotlib and seaborn) and Tableau - boxplots, histograms, heatmaps, pairplots
+Do preliminary univariate analyses and frequency counts 
+Gain understanding of distributions 
+Check for outliers or other weirdness 
+Look at correlations and consider multicollinearity 
+Build visualizations to support identified trends using Python libraries (pandas, matplotlib and seaborn) and Tableau - boxplots, histograms, heatmaps, pairplots
 
 # Step 4: Use multiple methods of Natural Language Processing
 
-Use VADER (Bag of Words), Roberta and Hugging Face algo to do valence analysis Compare different valence values with the valence provided by Spotify and popularity scores Create word clouds based on popularity, valence values, individual user preferences
+Implement several different algorithms to understand the emotional valence of each Beatles tune
+Use "confentional" Bag of Words approach using VADER (Valence Aware Dictionary and sEntiment Reasoner) lexicon in the Python Natural Language Toolkit package. 
+Use Roberta transformer model that was pretrained on very large corpus of Twitter data
+Use Transformers Pipeline on Hugging Face to see which algo it recommends for this task and provide valence analysis 
+Use distilbertsentiment to look at not only the words but their relatrive positioning to infer meaning
+Try out "amanda-cristina/finetuning-sentiment-model-4500-lyrics" which is a pretrained specifically on song lyrics
+Compare different valence values with the valence provided by Spotify and popularity scores Create word clouds based on popularity, valence values, individual user preferences
 
 # Step 5: Unsupervised Learning - K-Means clustering
 
-Create dummy values for songwriter, lead vocalist and possibly sentiment analysis (completed elsewhere in this workflow) using one-hot-encoder for label encoding Scale features to have zero means and unit variance Train several iterations of K-Means clustering on song metadata values, with various values of K. Use Elbow method to select a good value of K Profile clusters to understand their composition
+Create dummy values for songwriter, lead vocalist using one-hot-encoder for label encoding 
+Rotate through different values from previous sentiment analysis (completed elsewhere in Step 4 of this workflow)
+
+Scale features to have zero means and unit variance 
+Train several iterations of K-Means clustering on song metadata values, with various values of K. 
+Use Elbow method to select a good value of K Profile clusters to understand their composition
 
 # Step 6: Supervised Learning - regressions
 
