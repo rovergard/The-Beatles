@@ -28,11 +28,17 @@ Build visualizations to support identified trends using Python libraries (pandas
 # Step 4: Use multiple methods of Natural Language Processing
 
 Implement several different algorithms to understand the emotional valence of each Beatles tune
+
 Use "confentional" Bag of Words approach using VADER (Valence Aware Dictionary and sEntiment Reasoner) lexicon in the Python Natural Language Toolkit package. 
+
 Use Roberta transformer model that was pretrained on very large corpus of Twitter data
+
 Use Transformers Pipeline on Hugging Face to see which algo it recommends for this task and provide valence analysis 
+
 Use distilbertsentiment to look at not only the words but their relatrive positioning to infer meaning
-Try out "amanda-cristina/finetuning-sentiment-model-4500-lyrics" which is a pretrained specifically on song lyrics
+
+Try out "amanda-cristina/finetuning-sentiment-model-4500-lyrics" which is a pretrained specifically on song lyrics. This was unbelievably simple as it literally asks for what class of model I want and then just an input of each string of song lyrics
+
 Compare different valence values with the valence provided by Spotify and popularity scores Create word clouds based on popularity, valence values, individual user preferences
 
 # Step 5: Unsupervised Learning - K-Means clustering
@@ -41,7 +47,9 @@ Create dummy values for songwriter, lead vocalist using one-hot-encoder for labe
 Rotate through different values from previous sentiment analysis (completed elsewhere in Step 4 of this workflow)
 
 Scale features to have zero means and unit variance 
+
 Train several iterations of K-Means clustering on song metadata values, with various values of K. 
+
 Use Elbow method to select a good value of K Profile clusters to understand their composition
 
 # Step 6: Supervised Learning - regressions
